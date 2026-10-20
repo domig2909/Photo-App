@@ -1,128 +1,34 @@
 <!doctype html>
-<html lang="de"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#111827"><title>ClearFrame Photo — Bildverbesserung</title>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0b1020"><title>ClearFrame Photo</title>
 <style>
-:root{color-scheme:dark;--bg:#0b1020;--panel:#131b2e;--panel2:#1b2740;--line:#2a3854;--text:#edf2ff;--muted:#9ba9c4;--accent:#78a9ff;--warn:#ffce73;--good:#7de0b0}
-*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#0b1020,#10182b);color:var(--text);font:15px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-header{padding:20px max(16px,calc((100vw - 1200px)/2));border-bottom:1px solid var(--line);background:#0b1020e8;position:sticky;top:0;z-index:5;backdrop-filter:blur(12px)}
-.brand{display:flex;align-items:center;gap:12px}.logo{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,#77a9ff,#9c8bff);display:grid;place-items:center;color:#091126;font-size:23px;font-weight:900}.brand h1{font-size:20px;margin:0}.brand p{margin:1px 0 0;color:var(--muted);font-size:12px}
-main{max-width:1200px;margin:auto;padding:22px 18px 48px}.notice{border:1px solid #69552d;background:#302716;color:#ffe3a3;padding:12px 14px;border-radius:12px;font-size:13px;margin-bottom:18px}
-.layout{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(290px,.8fr);gap:18px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:17px;min-width:0}.panel h2{font-size:16px;margin:0 0 12px}
-.drop{border:1px dashed #4b6287;border-radius:13px;padding:22px;text-align:center;background:#111a2d;margin-bottom:14px}.drop input{max-width:100%;margin-top:12px}
-.preview{background:#070b14;border-radius:12px;overflow:hidden;min-height:240px;display:grid;place-items:center}.preview canvas{display:block;max-width:100%;max-height:65vh;width:auto;height:auto;object-fit:contain}.placeholder{padding:30px;text-align:center;color:#7888a5}
-.btnrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.btn{appearance:none;border:1px solid #405577;background:var(--panel2);color:var(--text);padding:10px 13px;border-radius:10px;font-weight:650;cursor:pointer}.btn:hover{border-color:var(--accent)}.btn.primary{background:var(--accent);color:#081328;border-color:var(--accent)}.btn:disabled{opacity:.4;cursor:not-allowed}
-.controls{display:grid;gap:14px}.control label{display:flex;justify-content:space-between;gap:8px;margin-bottom:5px;font-size:13px}.control input[type=range]{width:100%;accent-color:var(--accent)}.check{display:flex;align-items:center;gap:9px;font-size:13px}.check input{accent-color:var(--accent);width:17px;height:17px}
-.compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}.imagebox{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#080c15;min-width:0}.imagebox .label{padding:9px 11px;font-size:13px;font-weight:700}.imagebox canvas{width:100%;height:auto;display:block;background:#080c15}.empty{padding:22px;color:#7888a5;text-align:center}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}.stat{background:#0d1526;border:1px solid var(--line);border-radius:10px;padding:10px}.stat b{display:block;font-size:13px}.stat span{font-size:12px;color:var(--muted);overflow-wrap:anywhere}
-.log{white-space:pre-wrap;overflow-wrap:anywhere;background:#0a1120;border:1px solid var(--line);border-radius:10px;padding:12px;font:12px/1.5 ui-monospace,monospace;max-height:200px;overflow:auto}.muted{color:var(--muted)}.small{font-size:12px}.pill{display:inline-block;border-radius:999px;padding:3px 8px;background:#1d3b31;color:var(--good);font-size:11px;font-weight:700}.footer{margin-top:18px;color:var(--muted);font-size:12px;text-align:center}
-@media(max-width:850px){.layout{grid-template-columns:1fr}.panel{padding:13px}}@media(max-width:500px){.compare{grid-template-columns:1fr}.btn{flex:1}.btnrow .btn{min-width:42%}.preview{min-height:180px}}
+:root{color-scheme:dark;--bg:#0b1020;--panel:#131b2e;--line:#2a3854;--text:#edf2ff;--muted:#a4b1ca;--blue:#8ab4ff}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,sans-serif}header{padding:18px 16px;background:#10172a;border-bottom:1px solid var(--line)}header h1{margin:0;font-size:21px}header p{margin:3px 0 0;color:var(--muted);font-size:13px}main{max-width:1100px;margin:auto;padding:16px;display:grid;gap:14px}.card{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:16px;min-width:0}h2{font-size:17px;margin:0 0 12px}.notice{background:#302716;border:1px solid #69552d;color:#ffe3a3;padding:11px;border-radius:10px;font-size:13px}.upload{display:grid;gap:10px}input[type=file]{width:100%;padding:10px;background:#0b1222;border:1px solid var(--line);border-radius:10px}.btn{padding:12px 14px;border:1px solid #526a92;background:#233452;color:white;border-radius:10px;font-weight:700;font-size:15px}.btn.primary{background:var(--blue);color:#081328;border-color:var(--blue)}.btn:disabled{opacity:.45}.status{font-size:13px;color:var(--muted);overflow-wrap:anywhere}.compare{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.imgbox{border:1px solid var(--line);border-radius:11px;overflow:hidden;background:#080c15;min-width:0}.imgbox strong{display:block;padding:8px 10px;font-size:13px}.imgbox canvas{display:block;width:100%;height:auto;max-height:65vh;object-fit:contain}.empty{padding:32px 12px;color:#8d9bb6;text-align:center}.controls{display:grid;gap:16px}.control label{display:flex;justify-content:space-between;gap:10px;font-size:14px}.control input{width:100%;accent-color:var(--blue)}.btns{display:flex;gap:8px;flex-wrap:wrap}.btns button{flex:1;min-width:130px}.hint{font-size:13px;color:var(--muted)}@media(max-width:600px){.compare{grid-template-columns:1fr}.card{padding:12px}}
 </style></head><body>
-<header><div class="brand"><div class="logo">C</div><div><h1>ClearFrame Photo</h1><p>Lokale Fotoverbesserung · MVP 0.2</p></div></div></header>
-<main>
-<div class="notice"><strong>Hinweis:</strong> Diese App verbessert die Darstellung eines Fotos mit klassischen Bildfiltern. Sie kann keine verlorenen Details sicher rekonstruieren und ist kein validiertes forensisches Werkzeug. KI-generierte Gesichtsdetails sind nicht enthalten. Verwende ausschließlich frei lizenzierte, fiktive oder anderweitig freigegebene Testbilder. Das Foto bleibt lokal in deinem Browser.</div>
-<div class="layout"><section class="panel">
-<h2>1 · Foto laden</h2>
-<div class="drop"><strong>Foto auswählen</strong><div class="muted small">Wähle zuerst eine Bilddatei aus. Danach bestätigst du den Start separat.</div><input id="file" type="file" accept="image/*,.jpg,.jpeg,.png,.webp,.heic,.heif"></div><div id="uploadStatus" class="notice" style="margin-top:-2px;margin-bottom:14px">Noch kein Bild ausgewählt.</div><div class="btnrow" style="margin:0 0 14px"><button class="btn primary" id="startProcess" disabled>Bild hochgeladen – Vorgang starten</button></div>
-<div class="preview"><canvas id="mainCanvas" width="640" height="480" hidden></canvas><div id="placeholder" class="placeholder">Lade ein Foto, um die Bildverbesserung zu starten.</div></div>
-<div class="stats"><div class="stat"><b>Datei</b><span id="fileName">Keine Datei</span></div><div class="stat"><b>Originalauflösung</b><span id="dimensions">—</span></div><div class="stat"><b>Ausgabeauflösung</b><span id="outDimensions">—</span></div><div class="stat"><b>SHA-256</b><span id="hash">Noch nicht berechnet</span></div></div>
-<div class="btnrow"><button class="btn primary" id="apply" disabled>Verbesserung anwenden</button><button class="btn" id="reset" disabled>Original anzeigen</button><button class="btn" id="download" disabled>Verbessertes Foto speichern</button></div>
-<h2 style="margin-top:24px">2 · Vorher / Nachher</h2><div class="compare">
-<div class="imagebox"><div class="label">Original</div><canvas id="before" width="640" height="480"></canvas></div>
-<div class="imagebox"><div class="label">Verbesserte Version</div><canvas id="after" width="640" height="480"></canvas></div></div>
-<p class="small muted">Das Ergebnis ist eine bearbeitete Kopie. Exportiere das Original separat, wenn du beide Fassungen aufbewahren möchtest.</p>
-</section><aside class="panel">
-<h2>3 · Bildverbesserung</h2><div class="controls">
-<div class="control"><label for="scale">Vergrößerung <strong id="scaleVal">2×</strong></label><input id="scale" type="range" min="1" max="4" step="1" value="2"></div>
-<div class="control"><label for="contrast">Kontrast <strong id="contrastVal">110%</strong></label><input id="contrast" type="range" min="50" max="180" value="110"></div>
-<div class="control"><label for="brightness">Helligkeit <strong id="brightnessVal">0</strong></label><input id="brightness" type="range" min="-60" max="60" value="0"></div>
-<div class="control"><label for="sharp">Schärfung <strong id="sharpVal">20%</strong></label><input id="sharp" type="range" min="0" max="100" value="20"></div>
-<div class="control"><label for="denoise">Glättung <strong id="denoiseVal">10%</strong></label><input id="denoise" type="range" min="0" max="60" value="10"></div>
-<label class="check"><input id="nearest" type="checkbox"> Pixelstruktur erhalten</label>
-</div><div class="btnrow"><button class="btn primary" id="update" disabled>Regler anwenden</button></div>
-<p class="small muted">Glättung reduziert feine Strukturen mit. Starke Schärfung kann künstliche Kanten erzeugen. Pixelstruktur erhalten zeigt Blöcke klarer, stellt aber keine verlorenen Informationen wieder her.</p>
-<h2 style="margin-top:24px">4 · Verarbeitungsprotokoll</h2><div class="log" id="log">ClearFrame Photo gestartet. Noch kein Foto verarbeitet.</div><div class="btnrow"><button class="btn" id="exportLog" disabled>Protokoll als JSON</button></div>
-</aside></div><div class="footer">ClearFrame Photo MVP 0.2 · Browserbasierter Prototyp · Nicht als validiertes forensisches Werkzeug freigegeben.</div>
-</main>
-<script>
-(()=>{
-const $=id=>document.getElementById(id),main=$('mainCanvas'),mc=main.getContext('2d',{willReadFrequently:true}),bc=$('before').getContext('2d',{willReadFrequently:true}),ac=$('after').getContext('2d',{willReadFrequently:true});
-let image=null,originalPixels=null,sourceFile=null,pendingFile=null,sha='',events=[],processed=false;
-const ids=['scale','contrast','brightness','sharp','denoise','nearest'];
-function labels(){$('scaleVal').textContent=$('scale').value+'×';$('contrastVal').textContent=$('contrast').value+'%';$('brightnessVal').textContent=$('brightness').value;$('sharpVal').textContent=$('sharp').value+'%';$('denoiseVal').textContent=$('denoise').value+'%'}
-function log(action,data={}){events.push({time:new Date().toISOString(),action,...data});$('log').textContent=events.map(e=>JSON.stringify(e)).join('\\n');$('exportLog').disabled=false}
-async function hashFile(f){try{const d=await crypto.subtle.digest('SHA-256',await f.arrayBuffer());return [...new Uint8Array(d)].map(x=>x.toString(16).padStart(2,'0')).join('')}catch(e){return 'Nicht verfügbar'}}
-function drawFit(ctx,canvas,srcW,srcH,pixels){canvas.width=srcW;canvas.height=srcH;ctx.putImageData(pixels,0,0)}
-async function loadImage(f){
- if(!f){return false}
- const looksLikeImage = (f.type && f.type.startsWith('image/')) || /\.(jpe?g|png|webp|gif|bmp|avif|heic|heif|tif?f)$/i.test(f.name||'');
- if(!looksLikeImage){alert('Die Datei sieht nicht wie ein unterstütztes Foto aus. Bitte JPG oder PNG testen.');return false}
- sourceFile=f;events=[];processed=false;
- return await new Promise(resolve=>{
- $('placeholder').hidden=false;$('placeholder').textContent='Foto wird geladen…';
- $('fileName').textContent=f.name;$('dimensions').textContent='Wird geladen…';
- const url=URL.createObjectURL(f),img=new Image();let loaded=false;
- const cleanup=()=>{try{URL.revokeObjectURL(url)}catch(e){}};
- img.onload=async()=>{
-  if(loaded)return;loaded=true;
-  try {
-   await (img.decode ? img.decode().catch(()=>{}) : Promise.resolve());
-   const w=img.naturalWidth||img.width,h=img.naturalHeight||img.height;
-   if(!w||!h) throw new Error('Keine Bildabmessungen erkannt');
-   image=img;main.width=w;main.height=h;mc.clearRect(0,0,w,h);mc.drawImage(img,0,0,w,h);
-   originalPixels=mc.getImageData(0,0,w,h);
-   drawFit(bc,$('before'),w,h,originalPixels);drawFit(ac,$('after'),w,h,originalPixels);
-   main.hidden=false;$('placeholder').hidden=true;
-   $('dimensions').textContent=`${w} × ${h}`;$('outDimensions').textContent=`${w} × ${h}`;$('hash').textContent='Wird berechnet…';
-   $('apply').disabled=false;$('update').disabled=false;$('reset').disabled=false;$('download').disabled=false;
-   sha=await hashFile(f);$('hash').textContent=sha.length>24?sha.slice(0,12)+'…'+sha.slice(-8):sha;
-   log('photo_loaded',{name:f.name,size_bytes:f.size,width:w,height:h,sha256:sha,processing:'local browser only'});process(false);
-  } catch(err) { console.error(err); $('placeholder').hidden=false;$('placeholder').textContent='Das Bildformat konnte nicht gelesen werden. Bitte als JPG oder PNG exportieren und erneut laden.';alert('Das Foto konnte nicht verarbeitet werden. Wenn es von einem iPhone stammt, exportiere es bitte als JPG oder PNG und versuche es erneut.'); resolve(false); }
-  cleanup();if(originalPixels)resolve(true);
- };
- img.onerror=()=>{if(loaded)return;loaded=true;cleanup();$('placeholder').hidden=false;$('placeholder').textContent='Bild nicht erkannt. Bitte JPG oder PNG auswählen.';alert('Das Bildformat wird von diesem Browser nicht unterstützt. Bitte das Foto als JPG oder PNG speichern und erneut auswählen.');resolve(false)};
- img.src=url;
- if(img.complete && img.naturalWidth>0) img.onload();
- });
-}
-$('file').addEventListener('change',e=>{
- const f=e.target.files&&e.target.files[0];
- if(!f)return;
- pendingFile=f;
- $('uploadStatus').textContent=`Ausgewählt: ${f.name} (${(f.size/1024/1024).toFixed(2)} MB). Drücke jetzt „Bild hochgeladen – Vorgang starten“.`;
- $('startProcess').disabled=false;
- log('photo_selected_waiting_for_start',{name:f.name,size_bytes:f.size,mime_type:f.type||'unbekannt'});
-});
-$('startProcess').addEventListener('click',async()=>{
- if(!pendingFile){alert('Bitte zuerst ein Foto auswählen.');return}
- $('startProcess').disabled=true;
- $('startProcess').textContent='Verarbeitung läuft…';
- $('uploadStatus').textContent='Foto wird geladen und verarbeitet. Bitte warten…';
- try {
-   await loadImage(pendingFile);
-   if(originalPixels){
-     $('uploadStatus').textContent=`Fertig: ${pendingFile.name} wurde geladen. Du kannst die Regler anpassen und erneut auf „Verbesserung anwenden“ drücken.`;
-     log('start_process_completed',{name:pendingFile.name});
-   } else {
-     $('uploadStatus').textContent='Das Bild konnte nicht geladen werden. Bitte JPG oder PNG probieren.';
-   }
- } finally {
-   $('startProcess').disabled=!pendingFile;
-   $('startProcess').textContent='Bild hochgeladen – Vorgang starten';
- }
-});
-function process(record=true){if(!originalPixels)return;const w=originalPixels.width,h=originalPixels.height;let tmp=document.createElement('canvas');tmp.width=w;tmp.height=h;let t=tmp.getContext('2d',{willReadFrequently:true});t.putImageData(originalPixels,0,0);
-const den=Number($('denoise').value)/100,contrast=Number($('contrast').value)/100,brightness=Number($('brightness').value),sharp=Number($('sharp').value)/100,scale=Number($('scale').value);
-if(den>0){let blur=document.createElement('canvas');blur.width=w;blur.height=h;let b=blur.getContext('2d');b.filter=`blur(${den*1.3}px)`;b.drawImage(tmp,0,0);t.globalAlpha=den*.65;t.drawImage(blur,0,0);t.globalAlpha=1}
-let im=t.getImageData(0,0,w,h),d=im.data;for(let i=0;i<d.length;i+=4){for(let c=0;c<3;c++)d[i+c]=Math.max(0,Math.min(255,(d[i+c]-128)*contrast+128+brightness))}t.putImageData(im,0,0);
-if(sharp>0){let src=t.getImageData(0,0,w,h),s=src.data,out=t.createImageData(w,h),o=out.data,a=sharp*.9;for(let y=0;y<h;y++)for(let x=0;x<w;x++){let i=(y*w+x)*4;for(let c=0;c<3;c++){let v=s[i+c],l=s[(y*w+Math.max(0,x-1))*4+c],r=s[(y*w+Math.min(w-1,x+1))*4+c],u=s[(Math.max(0,y-1)*w+x)*4+c],dn=s[(Math.min(h-1,y+1)*w+x)*4+c];o[i+c]=Math.max(0,Math.min(255,v+a*(v-(l+r+u+dn)/4)))}o[i+3]=s[i+3]}t.putImageData(out,0,0)}
-const ow=Math.min(5000,w*scale),oh=Math.min(5000,h*scale);$('after').width=ow;$('after').height=oh;ac.imageSmoothingEnabled=!$('nearest').checked;ac.imageSmoothingQuality='high';ac.drawImage(tmp,0,0,ow,oh);$('outDimensions').textContent=`${ow} × ${oh}`;processed=true;
-if(record)log('photo_enhanced',{input_dimensions:`${w}x${h}`,output_dimensions:`${ow}x${oh}`,scale,contrast_percent:$('contrast').value,brightness,sharpening_percent:$('sharp').value,smoothing_percent:$('denoise').value,nearest_neighbor:$('nearest').checked,warning:'Filter können Artefakte erzeugen; keine Rekonstruktion verlorener Details.'})}
-ids.forEach(id=>$(id).addEventListener('input',()=>{labels();if(originalPixels)process(false)}));labels();
-$('apply').onclick=()=>process(true);$('update').onclick=()=>process(true);
-$('reset').onclick=()=>{if(!originalPixels)return;drawFit(ac,$('after'),originalPixels.width,originalPixels.height,originalPixels);$('outDimensions').textContent=`${originalPixels.width} × ${originalPixels.height}`;processed=false;log('original_view_restored')};
-$('download').onclick=()=>{if(!processed){alert('Bitte zuerst „Verbesserung anwenden“ wählen.');return}const a=document.createElement('a');a.download='clearframe-photo-enhanced.png';a.href=$('after').toDataURL('image/png');a.click();log('enhanced_photo_exported',{width:$('after').width,height:$('after').height,format:'PNG'})};
-$('exportLog').onclick=()=>{const blob=new Blob([JSON.stringify({app:'ClearFrame Photo MVP 0.2',created_at:new Date().toISOString(),source:{name:sourceFile?.name||null,size_bytes:sourceFile?.size||null,sha256:sha||null},events,disclaimer:'Protokoll für Testzwecke; kein zertifiziertes forensisches Gutachten.'},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='clearframe-photo-report.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1500)};
-log('app_started',{version:'0.2',mode:'photo-only',processing:'client-side'});
-})();
+<header><h1>🔵 ClearFrame Photo</h1><p>Foto verbessern · Verarbeitung direkt auf diesem Gerät</p></header><main>
+<div class="notice"><b>Wichtig:</b> Diese App nutzt normale Bildfilter, keine KI-Entwackelung. Stark verwischte Details lassen sich damit nicht zuverlässig wiederherstellen. Die ausgewählten Fotos werden nicht an einen Server hochgeladen.</div>
+<section class="card"><h2>1 · Foto auswählen</h2><div class="upload"><input id="file" type="file" accept="image/jpeg,image/png,image/webp,image/gif"><button class="btn primary" id="load">Foto laden</button><div class="status" id="status" aria-live="polite">Noch kein Foto geladen.</div></div></section>
+<section class="card"><h2>2 · Vorher / Nachher</h2><div class="compare"><div class="imgbox"><strong>Original</strong><div id="beforeEmpty" class="empty">Wähle ein Foto aus.</div><canvas id="before" hidden></canvas></div><div class="imgbox"><strong>Bearbeitet – Vorschau aktualisiert sich direkt</strong><div id="afterEmpty" class="empty">Noch kein Ergebnis.</div><canvas id="after" hidden></canvas></div></div></section>
+<section class="card"><h2>3 · Regler</h2><div class="controls">
+<div class="control"><label for="brightness">Helligkeit <b id="brightnessVal">0</b></label><input id="brightness" type="range" min="-100" max="100" value="0" step="1"></div>
+<div class="control"><label for="contrast">Kontrast <b id="contrastVal">100 %</b></label><input id="contrast" type="range" min="0" max="250" value="100" step="5"></div>
+<div class="control"><label for="saturation">Farbsättigung <b id="saturationVal">100 %</b></label><input id="saturation" type="range" min="0" max="250" value="100" step="5"></div>
+<div class="control"><label for="sharp">Schärfung <b id="sharpVal">0 %</b></label><input id="sharp" type="range" min="0" max="100" value="0" step="5"></div>
+<div class="control"><label for="scale">Vergrößerung <b id="scaleVal">1×</b></label><input id="scale" type="range" min="1" max="3" value="1" step="1"></div>
+</div><p class="hint">Änderungen werden beim Bewegen der Regler direkt angezeigt. Die Schärfung kann Rauschen und Artefakte verstärken.</p><div class="btns"><button class="btn" id="reset" disabled>Zurücksetzen</button><button class="btn primary" id="save" disabled>Bearbeitetes PNG speichern</button></div></section>
+</main><script>
+(()=>{'use strict';const $=id=>document.getElementById(id);const fileInput=$('file'),loadBtn=$('load'),before=$('before'),after=$('after');let original=null,filename='photo';
+function setStatus(s){$('status').textContent=s}
+function labels(){for(const [id,suffix] of [['brightness',''],['contrast',' %'],['saturation',' %'],['sharp',' %'],['scale','×']])$(id+'Val').textContent=$ (id).value+suffix}
+function showCanvas(c,empty){c.hidden=false;$(empty).hidden=true}
+function resetControls(){ $('brightness').value=0;$('contrast').value=100;$('saturation').value=100;$('sharp').value=0;$('scale').value=1;labels();render() }
+function render(){if(!original)return;labels();const w=original.width,h=original.height;const bctx=before.getContext('2d');before.width=w;before.height=h;bctx.putImageData(original,0,0);showCanvas(before,'beforeEmpty');const scale=Number($('scale').value);const ow=Math.min(6000,w*scale),oh=Math.min(6000,h*scale);const temp=document.createElement('canvas');temp.width=w;temp.height=h;const ctx=temp.getContext('2d',{willReadFrequently:true});ctx.putImageData(original,0,0);const data=ctx.getImageData(0,0,w,h),d=data.data,brightness=Number($('brightness').value),contrast=Number($('contrast').value)/100,sat=Number($('saturation').value)/100,sharp=Number($('sharp').value)/100;
+// Apply brightness, contrast, saturation to each pixel.
+for(let i=0;i<d.length;i+=4){let r=d[i],g=d[i+1],b=d[i+2];r=(r-128)*contrast+128+brightness;g=(g-128)*contrast+128+brightness;b=(b-128)*contrast+128+brightness;const gray=.2126*r+.7152*g+.0722*b;r=gray+(r-gray)*sat;g=gray+(g-gray)*sat;b=gray+(b-gray)*sat;d[i]=Math.max(0,Math.min(255,r));d[i+1]=Math.max(0,Math.min(255,g));d[i+2]=Math.max(0,Math.min(255,b))}ctx.putImageData(data,0,0);
+// Simple unsharp mask via a blurred copy; intensity is deliberately user controlled.
+if(sharp>0){const blur=document.createElement('canvas');blur.width=w;blur.height=h;const bl=blur.getContext('2d');bl.filter='blur(1.2px)';bl.drawImage(temp,0,0);const base=ctx.getImageData(0,0,w,h),soft=bl.getImageData(0,0,w,h),a=base.data,z=soft.data;for(let i=0;i<a.length;i+=4)for(let c=0;c<3;c++)a[i+c]=Math.max(0,Math.min(255,a[i+c]+(a[i+c]-z[i+c])*sharp*2.5));ctx.putImageData(base,0,0)}
+after.width=ow;after.height=oh;const out=after.getContext('2d');out.imageSmoothingEnabled=true;out.imageSmoothingQuality='high';out.drawImage(temp,0,0,ow,oh);showCanvas(after,'afterEmpty');$('save').disabled=false;$('reset').disabled=false;setStatus(`Aktiv: ${filename} · Original ${w} × ${h} px · Ausgabe ${ow} × ${oh} px · Vorschau aktualisiert.`)}
+loadBtn.addEventListener('click',()=>{const f=fileInput.files&&fileInput.files[0];if(!f){setStatus('Bitte zuerst eine JPG-, PNG- oder WebP-Datei auswählen.');return}if(!/^image\/(jpeg|png|webp|gif)$/.test(f.type)){setStatus('Dieses Format wird nicht unterstützt. Bitte das Foto als JPG oder PNG exportieren.');return}loadBtn.disabled=true;setStatus('Foto wird geladen …');const url=URL.createObjectURL(f),img=new Image();img.onload=()=>{try{const c=document.createElement('canvas');c.width=img.naturalWidth;c.height=img.naturalHeight;c.getContext('2d').drawImage(img,0,0);original=c.getContext('2d',{willReadFrequently:true}).getImageData(0,0,c.width,c.height);filename=f.name.replace(/\.[^.]+$/,'')||'photo';$('reset').disabled=false;render();setStatus(`Foto geladen: ${f.name}. Bewege einen Regler – die Vorschau ändert sich sofort.`)}catch(e){setStatus('Foto konnte nicht verarbeitet werden. Bitte als JPG oder PNG speichern und erneut versuchen.')}finally{URL.revokeObjectURL(url);loadBtn.disabled=false}};img.onerror=()=>{URL.revokeObjectURL(url);loadBtn.disabled=false;setStatus('Foto konnte nicht geöffnet werden. Bitte als JPG oder PNG exportieren.');};img.src=url});
+for(const id of ['brightness','contrast','saturation','sharp','scale'])$(id).addEventListener('input',render);
+$('reset').addEventListener('click',resetControls);
+$('save').addEventListener('click',()=>{if(!original)return;try{after.toBlob(blob=>{if(!blob){setStatus('Export fehlgeschlagen. Bitte erneut versuchen.');return}const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=filename+'-clearframe.png';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000);setStatus('PNG-Export gestartet. Prüfe deine Downloads bzw. die Dateien-App.')},'image/png')}catch(e){setStatus('Export fehlgeschlagen. Bitte erneut versuchen.')}});
+labels();})();
 </script></body></html>
